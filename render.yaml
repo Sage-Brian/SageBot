@@ -1,0 +1,16 @@
+services:
+  - type: worker
+    name: sagebot
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+    startCommand: bash start.sh
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        value: 8130637111:AAFHI4pCRdsirPft96mU34DyPjVtxzDhVuI   # 👈 put your token here
+      - key: ADMIN_CHAT_ID
+        value: 7705556471
+      - key: MPESA_CONSUMER_KEY
+        value: your-mpesa-consumer-key
+      - key: MPESA_CONSUMER_SECRET
+        value: your-mpesa-consumer-secret

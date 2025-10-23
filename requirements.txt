@@ -1,0 +1,11 @@
+python-telegram-bot==20.8
+fpdf2
+reportlab
+python-docx
+pandas
+rapidfuzz
+textblob
+language-tool-python
+PyPDF2
+requests
+chardet
