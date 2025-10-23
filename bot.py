@@ -10,7 +10,6 @@ Features:
 """
 
 # ------------------ IMPORTS ------------------
-from report_generator import generate_colored_pdf
 import os, time, json
 from functools import wraps
 from collections import Counter
@@ -43,6 +42,38 @@ from telegram.ext import (
 # ✅ Import M-Pesa and report generator
 from payment_mpesa import lipa_na_mpesa
 from report_generator import generate_colored_pdf, generate_word_report
+
+# -------------------------------
+# Example command handler
+# -------------------------------
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("Hello! SageBot is ready to help you.")
+
+# Add other handlers here as needed
+# async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+#     ...
+
+# -------------------------------
+# Main bot startup
+# -------------------------------
+if __name__ == "__main__":
+    BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+
+    if not BOT_TOKEN:
+        print("Error: TELEGRAM_BOT_TOKEN is not set in environment variables.")
+        exit(1)
+
+    # Build the bot application
+    app = ApplicationBuilder().token(BOT_TOKEN).build()
+
+    # Register handlers
+    app.add_handler(CommandHandler("start", start))
+    # Add more handlers here, e.g.
+    # app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+
+    # Run the bot
+    print("SageBot is starting...")
+    app.run_polling()
 
 # ------------------ CONFIGURATION ------------------
 BOT_TOKEN = "8130637111:AAFHI4pCRdsirPft96mU34DyPjVtxzDhVuI"
