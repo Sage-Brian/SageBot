@@ -10,6 +10,15 @@ Features:
 """
 
 # ------------------ IMPORTS ------------------
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # automatically loads variables from .env
+
+BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
+ADMIN_CHAT_ID = os.environ.get("ADMIN_CHAT_ID")
+MPESA_CONSUMER_KEY = os.environ.get("MPESA_CONSUMER_KEY")
+MPESA_CONSUMER_SECRET = os.environ.get("MPESA_CONSUMER_SECRET")
 import os, time, json
 from functools import wraps
 from collections import Counter
