@@ -1,3 +1,5 @@
 #!/bin/bash
-echo "Starting SageBot..."
-python3 bot.py
+set -a
+source .env
+set +a
+python bot.py
